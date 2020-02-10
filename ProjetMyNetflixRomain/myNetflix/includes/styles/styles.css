@@ -1,0 +1,99 @@
+body, html, *{
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	font-famiy: Tahoma, Verdana, Sans Serif;
+}
+
+img {
+	border: none;
+}
+
+a, a:link, a:visited, a:hover {
+	text-decoration: none;
+}
+
+#topheader > header > div {
+	display: inline-block;
+	border: none;
+	margin: 0;
+}
+
+#topheader > header > div:first-child {
+	width: 200px;
+	margin: 10px 20px;
+}
+
+#topheader > header > div:last-child {
+	vertical-align: top;
+}
+
+#topheader > header > div > p {
+	font-size: 2.2em;
+	font-weight: bold;
+	line-height: 120px;
+}
+
+#topheader > nav {
+	width: 600px;
+	margin: 0 auto;
+	background-color: black;
+	min-height: 30px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#topheader > nav > ul {
+	list-style-type: none;
+}
+
+#topheader > nav > ul li {
+	text-transform: uppercase;
+	display: inline-block;
+	width: 150px;
+	line-height: 30px;
+	font-width: bolder;
+	color: white;
+}
+
+#topheader > nav > ul li a,
+#topheader > nav > ul li a:link,
+#topheader > nav > ul li a:hover,
+#topheader > nav > ul li a:visited{
+	color: white;
+}
+
+form{
+	width: 60%;
+	margin: 10px auto;
+	border: solid 1px black;
+	border-radius: 2px 2px 5px 12px;
+	padding: 2px 20px 10px 20px;
+}
+
+form>header{
+	background-color: black;
+	color: white;
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+table{
+	border-collapse: collapse;
+	width: 60%;
+	margin: 10px auto;
+	border: solid 1px black;
+}
+
+table>thead>tr>th{
+	background-color: black;
+	color: white;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+tbody>tr>td{
+	border: solid 1px black;
+	text-align: center;
+}

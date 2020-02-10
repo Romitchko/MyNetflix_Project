@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>My Netflix</title>
+    </head>
+    <body>
+        <section>
+            <header><h4>Mon API Netflix</h4></header>
+            
+            <main>
+                <button onclick="getSeries()">Les Séries</button>
+            </main>
+
+        </section>
+        <hr />
+        <section>
+            <header><h4>Récupération des saisons d'une série</h4></header>
+            <input type="number" id="idseriesaison" value="2"/><button onclick="getSaisons(idseriesaison)">Envoyer</button>
+        </section>
+
+        <script type="application/javascript">
+            function getSeries(){
+                window.open('api.php?data=series');
+            }
+
+            function getSaisons(idserie = null) {
+                if(idserie == null || idserie.value.trim() === '') {
+                    window.open('api.php?data=saisons');
+                } else {
+                    window.open('api.php?data=saisons&idserie=' + idserie.value);
+                }
+            }
+        </script>
+        
+    </body>
+
+</html>

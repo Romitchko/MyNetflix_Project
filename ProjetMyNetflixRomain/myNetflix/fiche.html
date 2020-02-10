@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8" />
+	<title>MyNetflix</title>
+	<style type="text/css">
+
+	</style>
+	<link rel="stylesheet"  href="includes/styles/styles.css" type="text/css" />
+</head>
+<body>
+<section id="topheader">
+	<header>
+		<div><img src="includes/images/logo.png" alt="logo" /></div>
+		<div><p id="titre">Un titre qui va bien</p></div>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="index.html">Accueil</a></li>
+			<li><a href="liste.html">Liste</a></li>
+			<li><a href="fiche.html">Fiche</a></li>
+		</ul>
+	</nav>
+</section>
+<section id="content">
+	<form action="https://www.devatom.net/render.php" method="post" onsubmit="return VerifForm();">
+		<header>Fiche Série</header>
+		<div>
+			<label>Titre :</label>
+			<input type="text" name="ttTitre" id="ttTitre" placeholder="Saisir le titre" onchange="decolore(this)" />
+		</div>
+		<div>
+			<label>Nombre de saisons :</label>
+			<input type="number" min="1" step="1" name="tnNbSaisons" value="1" onchange="decolore(this)"/>
+		</div>
+		<div>
+			<label>Date première sortie :</label>
+			<select name="cbJour"><option value="0">---</option></select>
+			<select name="cbMois"><option value="0">---</option></select>
+			<select name="cbAnnee"><option value="0">---</option></select>
+		</div>
+		<div>
+			<label>Réalisateur :</label>
+			<select name="cbRealisateur"><option value="0">Inconnu</option></select>
+		</div>
+		<div id="checkGenres">
+			<label>Genre :</label>
+			<input type="checkbox" name="chkFantastique" id="chkFantastique" /><label for="chkFantastique">Fantastique</label>
+			<input type="checkbox" name="chkSyFy" id="chkSyFy" /><label for="chkSyFy">Science-Fiction</label>
+			<input type="checkbox" name="chkThriller" id="chkThriller" /><label for="chkThriller">Thriller</label>
+			<input type="checkbox" name="chkPolicier" id="chkPolicier" /><label for="chkPolicier">Policier</label>
+		</div>
+		<div>
+			<label>Arrêtée ? :</label>
+			<input type="radio" name="rdStop" value="0" id="rdOui"  /><label for="rdOui">Oui</label>
+			<input type="radio" name="rdStop" value="1" id="rdNon" checked /><label for="rdNon">Non</label>
+		</div>
+		<div id="actions">
+			<button type="submit">Valider</button>
+			<button type="reset">Annuler</button>
+		</div>
+	</form>
+</section>
+<script type="application/javascript" src="includes/scripts/common_functions.js"></script>
+<script type="application/javascript" src="includes/scripts/form_functions.js"></script>
+<script type="application/javascript">
+	document.body.onload = function(){
+		var cbJ = document.querySelectorAll("select[name=cbJour]")[0];
+		var cbA = document.querySelectorAll("select[name=cbAnnee]")[0];
+		var cbM = document.querySelectorAll("select[name=cbMois]")[0];
+		var cbRealisateurs = document.querySelectorAll("select[name=cbRealisateur]")[0];
+
+		remplitCbJours(cbJ);
+		remplitCbMois(cbM);
+		remplitCbAnnees(cbA);
+		remplitCbRealisateurs(cbRealisateurs);
+	}
+
+	function VerifForm(){
+		var champTitre = document.getElementById('ttTitre');
+		if (champTitre.value.trim() === ''){
+			champTitre.style.borderColor = 'red';
+			champTitre.focus();
+			return false;
+		}
+
+		var champJours = document.getElementsByName("cbJour")[0];
+		var champMois = document.getElementsByName("cbMois")[0];
+		var champAnnee = document.getElementsByName("cbAnnee")[0];
+		if (champJours.selectedIndex === 0) {
+			alert('Vous devez sélectionner un jour !');
+			champJours.focus();
+			return false;
+		}
+		if (champMois.selectedIndex === 0) {
+			alert('Vous devez sélectionner un mois !');
+			champMois.focus();
+			return false;
+		}
+		if (champAnnee.selectedIndex === 0) {
+			alert('Vous devez sélectionner une année !');
+			champAnnee.focus();
+			return false;
+		}
+
+		var champReal = document.getElementsByName("cbRealisateur")[0];
+		if (champReal.selectedIndex === 0) {
+			alert('Vous devez sélectionner un réalisateur !');
+			champReal.focus();
+			return false;
+		}
+
+		if (!oneChecked()){
+			alert('Cocher un genre au moins tu dois !');
+
+			return false;
+		}
+
+		return true;
+	}
+
+	function oneChecked(){
+		var checkboxes = document.querySelectorAll("#checkGenres input[type=checkbox]");
+		var checked = false;
+		var i = 0;
+		do {
+			checked = checkboxes[i].checked;
+			i++;
+		}while(!checked && i < checkboxes.length);
+		return checked;
+	}
+
+	function decolore(champ){
+		champ.style.borderColor = '';
+	}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
